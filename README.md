@@ -1,0 +1,2 @@
+# LoadingRecyclerView
+下拉刷新，滚动到底部加载更多以及添加header功能的的RecyclerView。使用方式和RecyclerView完全一致，不需要额外的layout，不需要写特殊的adater。 
