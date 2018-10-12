@@ -19,6 +19,7 @@ import com.sinothk.widget.loadingRecyclerView.demo.R
 import com.sinothk.widget.loadingRecyclerView.extend.LoadingRecycleViewHeader
 import com.sinothk.widget.loadingRecyclerView.lines.SpacesItemDecoration
 import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack
+import com.sinothk.widget.loadingRecyclerView.utils.UnitUtil
 import kotlinx.android.synthetic.main.activity_loading_recycle_view_demo.*
 import java.util.*
 
@@ -34,7 +35,7 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_loading_recycle_view_demo)
+        setContentView(R.layout.activity_loading_recycle_view_demo_grid)
 
         findViewById<View>(R.id.moreBtn).setOnClickListener { startActivity(Intent(this@LoadingRecycleGridViewTestActivity, LoadingRecycleViewDemoMainActivity::class.java)) }
 
@@ -70,13 +71,13 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
 //        recyclerView.addItemDecoration(recyclerView.getListViewLine(this, R.drawable.divider_sample))
 
         // 网格
-//        recyclerView.layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false) DividerItemDecoration
+        recyclerView.layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
 
         // 分割线
         //添加ItemDecoration，item之间的间隔GridDividerItemDecoration(leftRight, topBottom, Color.GREEN)
-//        val leftRight = dip2px(0f)
-//        val topBottom = dip2px(12f)
-//        recyclerView.addItemDecoration(recyclerView.getListViewLine(this, 12, R.color.colorAccent))
+        val leftRight = UnitUtil.dp2px(this, 1)
+        val topBottom = UnitUtil.dp2px(this,1)
+        recyclerView.addItemDecoration(recyclerView.GridDividerItemDecoration(leftRight, topBottom, resources.getColor(R.color.white)))
 
         // 设置刷新样式
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader)
@@ -90,8 +91,8 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
         recyclerView.defaultFootView!!.setNoMoreHint("数据全部加载完")
 
         // 设置头部
-        val header: View = LoadingRecycleViewHeader.getViewByLayoutId(this@LoadingRecycleGridViewTestActivity, R.layout.recyclerview_header)
-        recyclerView.addHeaderView(header)
+//        val header: View = LoadingRecycleViewHeader.getViewByLayoutId(this@LoadingRecycleGridViewTestActivity, R.layout.recyclerview_header)
+//        recyclerView.addHeaderView(header)
 
         // When the item number of the screen number is list.size-2,we call the onLoadMore
         recyclerView.setLimitNumberToCallLoadMore(2)

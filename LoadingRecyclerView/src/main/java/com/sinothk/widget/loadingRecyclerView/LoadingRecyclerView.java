@@ -982,7 +982,10 @@ public class LoadingRecyclerView extends RecyclerView {
 
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            if (parent.getChildAdapterPosition(view) <= mWrapAdapter.getHeadersCount()) {
+
+            int position = parent.getChildAdapterPosition(view);
+
+            if (position < mWrapAdapter.getHeadersCount()) {
                 return;
             }
 
@@ -993,12 +996,16 @@ public class LoadingRecyclerView extends RecyclerView {
         }
 
         private SpacesItemDecorationEntrust getEntrust(RecyclerView.LayoutManager manager) {
+
             SpacesItemDecorationEntrust entrust = null;
             //要注意这边的GridLayoutManager是继承LinearLayoutManager，所以要先判断GridLayoutManager
+
             if (manager instanceof GridLayoutManager) {
                 entrust = new GridEntrust(leftRight, topBottom, mColor);
+
             } else if (manager instanceof StaggeredGridLayoutManager) {
                 entrust = new StaggeredGridEntrust(leftRight, topBottom, mColor);
+
             } else {//其他的都当做Linear来进行计算
                 entrust = new LinearEntrust(leftRight, topBottom, mColor);
             }
