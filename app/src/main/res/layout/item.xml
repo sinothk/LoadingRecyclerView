@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dip"
-    android:background="#FFF"
-    android:paddingLeft="10dip">
+    android:layout_height="100dp"
+    android:background="#d96b6b"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_12">
 
     <View
         android:layout_width="60dip"
         android:layout_height="60dip"
         android:layout_gravity="center"
-        android:background="#999999" />
+        android:background="#909909" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="10dip" />
+        android:layout_marginStart="@dimen/dp_10"
+        android:text="SINOTHK" />
 </LinearLayout>

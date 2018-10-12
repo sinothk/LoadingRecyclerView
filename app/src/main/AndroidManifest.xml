@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".demo.LoadingRecycleGridViewTestActivity"
+            android:label="网格示例"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
         <activity
             android:name=".LoadingRecycleViewDemoMainActivity"
             android:label="@string/app_name" />
@@ -27,7 +34,8 @@
             android:theme="@style/SupportTheme" />
         <activity
             android:name=".LinearActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".GridActivity"
             android:label="@string/app_name" />
@@ -54,6 +62,8 @@
         <activity
             android:name=".ItemDecorationActivity"
             android:theme="@style/SupportTheme" />
+
+
     </application>
 
 </manifest>

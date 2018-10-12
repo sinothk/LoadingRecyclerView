@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by jianghejie on 15/11/26.
  */
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class MultiHeaderMyAdapter extends RecyclerView.Adapter<MultiHeaderMyAdapter.ViewHolder> {
 
     public void setClickCallBack(ItemClickCallBack clickCallBack) {
         this.clickCallBack = clickCallBack;
@@ -23,7 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public ArrayList<String> datas = null;
     private ItemClickCallBack clickCallBack;
 
-    public MyAdapter(ArrayList<String> datas) {
+    public MultiHeaderMyAdapter(ArrayList<String> datas) {
         this.datas = datas;
     }
 
@@ -43,7 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     @Override
                     public void onClick(View v) {
                         if (clickCallBack != null) {
-                            clickCallBack.onItemClick(position, datas.get(position));
+                            clickCallBack.onItemClick(position,datas.get(position));
                         }
                     }
                 }

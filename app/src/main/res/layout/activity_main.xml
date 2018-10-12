@@ -34,14 +34,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoLinearActivity"
-            android:text="(列表)LinearLayoutManager" />
+            android:text="(列表)LinearLayoutManager"
+            android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoGridActivity"
-            android:text="(网格)GridLayoutManager" />
+            android:text="(网格)GridLayoutManager"
+            android:textAllCaps="false" />
 
 
         <Button
@@ -49,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoEmptyViewActivity"
-            android:text="emptyViewSupport" />
+            android:text="emptyViewSupport"
+            android:textAllCaps="false" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -77,7 +80,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoStickyScrollLinearActivity"
-            android:text="StickyScrollLinearActivity" />
+            android:text="StickyScrollLinearActivity"
+            android:textAllCaps="false" />
 
 
         <Button
@@ -85,8 +89,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoStaggeredGridActivity"
-            android:text="StaggeredGridLayoutManager" />
-
+            android:text="StaggeredGridLayoutManager"
+            android:textAllCaps="false" />
 
 
         <Button
@@ -94,35 +98,40 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoCollapsingToolbarLayoutActivity"
-            android:text="CollapsingToolbarLayoutTest" />
+            android:text="CollapsingToolbarLayoutTest"
+            android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoDisableExampleActivity"
-            android:text="DisableExampleActivity" />
+            android:text="DisableExampleActivity"
+            android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoMultiHeaderActivity"
-            android:text="MultiHeaderActivity" />
+            android:text="MultiHeaderActivity"
+            android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoItemDecorationActivity"
-            android:text="ItemDecorationActivity" />
+            android:text="ItemDecorationActivity"
+            android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
             android:onClick="gotoItemAlphaChangeActivity"
-            android:text="AlphaChangeActivity" />
+            android:text="AlphaChangeActivity"
+            android:textAllCaps="false" />
 
 
     </LinearLayout>

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class MultiHeaderActivity extends AppCompatActivity {
     private LoadingRecyclerView mRecyclerView;
-    private MyAdapter mAdapter;
+    private MultiHeaderMyAdapter mAdapter;
     private ArrayList<String> listData;
     private int refreshTime = 0;
     private int times = 0;
@@ -40,12 +40,13 @@ public class MultiHeaderActivity extends AppCompatActivity {
 
         View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
         mRecyclerView.addHeaderView(header);
-        View header1 = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
-        mRecyclerView.addHeaderView(header1);
-        header1.setBackgroundColor(0xff556B2F);
-        View header2 = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
-        mRecyclerView.addHeaderView(header2);
-        header2.setBackgroundColor(0xff1874CD);
+//        View header1 = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
+//        mRecyclerView.addHeaderView(header1);
+//        header1.setBackgroundColor(0xff556B2F);
+//
+//        View header2 = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
+//        mRecyclerView.addHeaderView(header2);
+//        header2.setBackgroundColor(0xff1874CD);
 
 
         mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
@@ -98,7 +99,7 @@ public class MultiHeaderActivity extends AppCompatActivity {
         for(int i = 0; i < 15 ;i++){
             listData.add("item" + i);
         }
-        mAdapter = new MyAdapter(listData);
+        mAdapter = new MultiHeaderMyAdapter(listData);
 
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.refresh();
