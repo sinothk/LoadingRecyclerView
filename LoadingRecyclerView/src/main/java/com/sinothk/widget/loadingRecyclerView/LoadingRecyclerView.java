@@ -961,7 +961,7 @@ public class LoadingRecyclerView extends RecyclerView {
         private int topBottom;
 
 
-        private GridDividerItemDecoration(int leftRight, int topBottom) {
+        public GridDividerItemDecoration(int leftRight, int topBottom) {
             this.leftRight = leftRight;
             this.topBottom = topBottom;
         }

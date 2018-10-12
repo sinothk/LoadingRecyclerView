@@ -77,10 +77,10 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
         //添加ItemDecoration，item之间的间隔GridDividerItemDecoration(leftRight, topBottom, Color.GREEN)
         val leftRight = UnitUtil.dp2px(this, 1)
         val topBottom = UnitUtil.dp2px(this,1)
-        recyclerView.addItemDecoration(recyclerView.GridDividerItemDecoration(leftRight, topBottom, resources.getColor(R.color.white)))
+//        recyclerView.addItemDecoration(recyclerView.GridDividerItemDecoration(leftRight, topBottom))//, resources.getColor(R.color.white)
 
         // 设置刷新样式
-        recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader)
+        recyclerView.setRefreshProgressStyle(ProgressStyle.BallZigZag)
         recyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag)
         // 设置刷新样式:图标
         recyclerView.setArrowImageView(R.drawable.iconfont_downgrey)
