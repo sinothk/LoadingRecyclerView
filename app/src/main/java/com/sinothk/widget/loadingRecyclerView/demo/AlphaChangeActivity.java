@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class AlphaChangeActivity extends AppCompatActivity {
 
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     private int refreshTime = 0;
@@ -30,7 +30,7 @@ public class AlphaChangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alpha_change_layout);
 
-        mRecyclerView = (XRecyclerView)this.findViewById(R.id.recyclerview);
+        mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -54,7 +54,7 @@ public class AlphaChangeActivity extends AppCompatActivity {
                 mRecyclerView.scrollToPosition(0);
             }
         });
-        mRecyclerView.setScrollAlphaChangeListener(new XRecyclerView.ScrollAlphaChangeListener() {
+        mRecyclerView.setScrollAlphaChangeListener(new LoadingRecyclerView.ScrollAlphaChangeListener() {
             @Override
             public void onAlphaChange(int alpha) {
                 alpha_title.getBackground().setAlpha(alpha);
@@ -67,7 +67,7 @@ public class AlphaChangeActivity extends AppCompatActivity {
         });
         /** ------ alpha change listen test end ----- */
 
-        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 refreshTime ++;

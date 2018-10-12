@@ -13,12 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
 
 import java.util.ArrayList;
 
 public class StaggeredGridActivity extends AppCompatActivity {
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     private int refreshTime = 0;
@@ -32,7 +32,7 @@ public class StaggeredGridActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecyclerView = (XRecyclerView) this.findViewById(R.id.recyclerview);
+        mRecyclerView = (LoadingRecyclerView) this.findViewById(R.id.recyclerview);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,
                 StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -45,7 +45,7 @@ public class StaggeredGridActivity extends AppCompatActivity {
         View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup) findViewById(android.R.id.content), false);
         mRecyclerView.addHeaderView(header);
 
-        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 refreshTime++;

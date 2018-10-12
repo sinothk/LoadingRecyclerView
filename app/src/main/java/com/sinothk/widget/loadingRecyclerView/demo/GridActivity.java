@@ -4,21 +4,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
 
 import java.util.ArrayList;
 
 public class GridActivity extends AppCompatActivity {
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     private int refreshTime = 0;
@@ -29,7 +25,7 @@ public class GridActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview_grid);
 
-        mRecyclerView = (XRecyclerView)this.findViewById(R.id.recyclerview);
+        mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         GridLayoutManager layoutManager = new GridLayoutManager(this,3);
         mRecyclerView.setLayoutManager(layoutManager);
 
@@ -37,7 +33,7 @@ public class GridActivity extends AppCompatActivity {
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
 
-        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 refreshTime ++;

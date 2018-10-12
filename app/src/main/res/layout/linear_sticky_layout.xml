@@ -29,13 +29,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.sinothk.widget.loadingRecyclerView.XRecyclerView
+        <com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView
             android:id="@+id/XRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
-        </com.sinothk.widget.loadingRecyclerView.XRecyclerView>
+        </com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView>
 
     </LinearLayout>
 

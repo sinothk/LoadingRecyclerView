@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
 
-    <com.sinothk.widget.loadingRecyclerView.XRecyclerView
+    <com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView
         android:id="@+id/recyclerview"
         android:background="#ffffff"
         android:layout_width="match_parent"

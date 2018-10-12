@@ -8,12 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
 
 import java.util.ArrayList;
 
 public class CollapsingToolbarLayoutActivity extends AppCompatActivity {
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     private int refreshTime = 0;
@@ -26,7 +26,7 @@ public class CollapsingToolbarLayoutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecyclerView = (XRecyclerView)this.findViewById(R.id.recyclerview);
+        mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -34,7 +34,7 @@ public class CollapsingToolbarLayoutActivity extends AppCompatActivity {
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
-        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 refreshTime ++;

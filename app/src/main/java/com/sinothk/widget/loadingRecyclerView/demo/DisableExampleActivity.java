@@ -1,23 +1,18 @@
 package com.sinothk.widget.loadingRecyclerView.demo;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
 
 import java.util.ArrayList;
 
 public class DisableExampleActivity extends AppCompatActivity {
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     @Override
@@ -28,7 +23,7 @@ public class DisableExampleActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecyclerView = (XRecyclerView)this.findViewById(R.id.recyclerview);
+        mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);

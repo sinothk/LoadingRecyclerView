@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +20,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         this.clickCallBack = clickCallBack;
     }
 
-    public interface ItemClickCallBack {
-        void onItemClick(int pos);
-    }
+//    public interface ItemClickCallBack {
+//        void onItemClick(int pos, String s);
+//    }
 
     public ArrayList<String> datas = null;
     private ItemClickCallBack clickCallBack;
@@ -45,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     @Override
                     public void onClick(View v) {
                         if (clickCallBack != null) {
-                            clickCallBack.onItemClick(position);
+                            clickCallBack.onItemClick(position,datas.get(position));
                         }
                     }
                 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -12,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack;
 
 import java.util.ArrayList;
 
 public class LinearActivity extends AppCompatActivity {
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     private int refreshTime = 0;
@@ -41,7 +41,7 @@ public class LinearActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecyclerView = (XRecyclerView)this.findViewById(R.id.recyclerview);
+        mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -84,7 +84,7 @@ public class LinearActivity extends AppCompatActivity {
         // When the item number of the screen number is list.size-2,we call the onLoadMore
         mRecyclerView.setLimitNumberToCallLoadMore(2);
 
-        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 refreshTime ++;
@@ -138,12 +138,11 @@ public class LinearActivity extends AppCompatActivity {
         listData = new  ArrayList<String>();
         mAdapter = new MyAdapter(listData);
         mAdapter.setClickCallBack(
-                new MyAdapter.ItemClickCallBack() {
+                new ItemClickCallBack<String>() {
                     @Override
-                    public void onItemClick(int pos) {
-                        // a demo for notifyItemRemoved
+                    public void onItemClick(int pos, String o) {
                         listData.remove(pos);
-                        mRecyclerView.notifyItemRemoved(listData,pos);
+                        mRecyclerView.notifyItemRemoved(listData, pos);
                     }
                 }
         );

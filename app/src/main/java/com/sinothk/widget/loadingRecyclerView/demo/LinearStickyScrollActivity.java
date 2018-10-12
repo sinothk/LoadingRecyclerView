@@ -9,7 +9,8 @@ import android.view.View;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
 import com.sinothk.widget.loadingRecyclerView.StickyScrollLinearLayout;
-import com.sinothk.widget.loadingRecyclerView.XRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
+import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 
 public class LinearStickyScrollActivity extends AppCompatActivity {
 
-    private XRecyclerView mRecyclerView;
+    private LoadingRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private ArrayList<String> listData;
     private int times = 0;
@@ -72,7 +73,7 @@ public class LinearStickyScrollActivity extends AppCompatActivity {
     }
 
     private void initXR() {
-        mRecyclerView = (XRecyclerView) findViewById(R.id.XRecyclerView);
+        mRecyclerView = (LoadingRecyclerView) findViewById(R.id.XRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -83,7 +84,7 @@ public class LinearStickyScrollActivity extends AppCompatActivity {
 
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
 
-        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
 
@@ -122,10 +123,9 @@ public class LinearStickyScrollActivity extends AppCompatActivity {
         }
         mAdapter = new MyAdapter(listData);
         mAdapter.setClickCallBack(
-                new MyAdapter.ItemClickCallBack() {
+                new ItemClickCallBack<String>() {
                     @Override
-                    public void onItemClick(int pos) {
-                        // a demo for notifyItemRemoved
+                    public void onItemClick(int pos, String o) {
                         listData.remove(pos);
                         mRecyclerView.notifyItemRemoved(listData, pos);
                     }
