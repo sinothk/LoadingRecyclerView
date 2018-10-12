@@ -40,20 +40,22 @@ public class AlphaChangeActivity extends AppCompatActivity {
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
 
         /** ----- alpha change listen test start ----- */
-        final RelativeLayout alpha_title
-                = (RelativeLayout) findViewById(R.id.alpha_title);
+        final RelativeLayout alpha_title = (RelativeLayout) findViewById(R.id.alpha_title);
+
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+
         findViewById(R.id.back_to_top).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mRecyclerView.scrollToPosition(0);
             }
         });
+
         mRecyclerView.setScrollAlphaChangeListener(new LoadingRecyclerView.ScrollAlphaChangeListener() {
             @Override
             public void onAlphaChange(int alpha) {

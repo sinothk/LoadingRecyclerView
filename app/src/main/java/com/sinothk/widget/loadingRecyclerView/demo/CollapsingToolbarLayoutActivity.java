@@ -22,6 +22,7 @@ public class CollapsingToolbarLayoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collapsing_toolbar_layout);
+
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -34,6 +35,7 @@ public class CollapsingToolbarLayoutActivity extends AppCompatActivity {
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
+
         mRecyclerView.setLoadingListener(new LoadingRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {

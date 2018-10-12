@@ -1,7 +1,9 @@
 package com.sinothk.widget.loadingRecyclerView.demo;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.Menu;
@@ -28,6 +30,12 @@ public class GridActivity extends AppCompatActivity {
         mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         GridLayoutManager layoutManager = new GridLayoutManager(this,3);
         mRecyclerView.setLayoutManager(layoutManager);
+
+        // 分割线
+        Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider_sample);
+        mRecyclerView.addItemDecoration(mRecyclerView.new DividerItemDecoration(dividerDrawable));
+
+
 
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);

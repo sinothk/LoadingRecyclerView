@@ -1,120 +1,131 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="-------------------------------------" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="#FFF"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="基本使用" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="-------------------------------------" />
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoLinearActivity"
+            android:text="(列表)LinearLayoutManager" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="#FFF"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:text="基本使用" />
-    </RelativeLayout>
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoGridActivity"
+            android:text="(网格)GridLayoutManager" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoLinearActivity"
-        android:text="(列表)LinearLayoutManager" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoGridActivity"
-        android:text="(网格)GridLayoutManager" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="-------------------------------------" />
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoEmptyViewActivity"
+            android:text="emptyViewSupport" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="-------------------------------------" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="#FFF"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="复杂使用" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="#FFF"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:text="复杂使用" />
-    </RelativeLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoStickyScrollLinearActivity"
-        android:text="StickyScrollLinearActivity" />
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoStickyScrollLinearActivity"
+            android:text="StickyScrollLinearActivity" />
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoStaggeredGridActivity"
-        android:text="StaggeredGridLayoutManager" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoStaggeredGridActivity"
+            android:text="StaggeredGridLayoutManager" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoEmptyViewActivity"
-        android:text="emptyViewSupport" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoCollapsingToolbarLayoutActivity"
-        android:text="CollapsingToolbarLayoutTest" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoDisableExampleActivity"
-        android:text="DisableExampleActivity" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoCollapsingToolbarLayoutActivity"
+            android:text="CollapsingToolbarLayoutTest" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoMultiHeaderActivity"
-        android:text="MultiHeaderActivity" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoDisableExampleActivity"
+            android:text="DisableExampleActivity" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoItemDecorationActivity"
-        android:text="ItemDecorationActivity" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoMultiHeaderActivity"
+            android:text="MultiHeaderActivity" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        android:onClick="gotoItemAlphaChangeActivity"
-        android:text="AlphaChangeActivity" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoItemDecorationActivity"
+            android:text="ItemDecorationActivity" />
 
-</LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:onClick="gotoItemAlphaChangeActivity"
+            android:text="AlphaChangeActivity" />
+
+
+    </LinearLayout>
+</ScrollView>
+
+

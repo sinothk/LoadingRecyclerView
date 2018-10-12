@@ -16,7 +16,7 @@
 
     <RelativeLayout
         android:id="@+id/alpha_title"
-        android:background="#181818"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="60dp">

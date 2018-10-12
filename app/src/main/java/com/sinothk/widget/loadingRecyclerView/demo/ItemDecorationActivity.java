@@ -34,11 +34,11 @@ public class ItemDecorationActivity extends AppCompatActivity {
         mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
         mRecyclerView.setLayoutManager(layoutManager);
-        Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider_sample);
 
+        Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider_sample);
         mRecyclerView.addItemDecoration(mRecyclerView.new DividerItemDecoration(dividerDrawable));
+
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);

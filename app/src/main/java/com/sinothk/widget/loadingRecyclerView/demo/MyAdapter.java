@@ -20,10 +20,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         this.clickCallBack = clickCallBack;
     }
 
-//    public interface ItemClickCallBack {
-//        void onItemClick(int pos, String s);
-//    }
-
     public ArrayList<String> datas = null;
     private ItemClickCallBack clickCallBack;
 
