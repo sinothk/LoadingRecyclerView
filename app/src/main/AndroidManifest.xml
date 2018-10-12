@@ -3,19 +3,58 @@
     package="com.sinothk.widget.loadingRecyclerView.demo">
 
     <application
+        android:name=".ExampleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".LoadingRecycleViewDemoMainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".AlphaChangeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SupportTheme" />
+
+        <activity
+            android:name=".LinearActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".GridActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".StaggeredGridActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SupportTheme" />
+
+        <activity
+            android:name=".LinearStickyScrollActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SupportTheme" />
+
+        <activity
+            android:name=".EmptyViewActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".CollapsingToolbarLayoutActivity"
+            android:theme="@style/SupportTheme" />
+        <activity
+            android:name=".DisableExampleActivity"
+            android:theme="@style/SupportTheme" />
+        <activity
+            android:name=".MultiHeaderActivity"
+            android:theme="@style/SupportTheme" />
+        <activity
+            android:name=".ItemDecorationActivity"
+            android:theme="@style/SupportTheme" />
+
     </application>
 
 </manifest>
