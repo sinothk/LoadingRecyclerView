@@ -25,11 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
-import com.sinothk.widget.loadingRecyclerView.lines.GridEntrust;
-import com.sinothk.widget.loadingRecyclerView.lines.LinearEntrust;
-import com.sinothk.widget.loadingRecyclerView.lines.SpacesItemDecorationEntrust;
-import com.sinothk.widget.loadingRecyclerView.lines.StaggeredGridEntrust;
-
 import java.util.ArrayList;
 import java.util.List;
 
