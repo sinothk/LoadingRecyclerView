@@ -1,4 +1,4 @@
-package com.sinothk.widget.loadingRecyclerView.lines.d1;
+package com.sinothk.widget.loadingRecyclerView.lines;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

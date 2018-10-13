@@ -70,9 +70,7 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
 
         // 网格
         recyclerView.layoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
-
-        val itemDecoration = recyclerView.getGridViewLine(10)//, R.color.colorPrimary
-        recyclerView.addItemDecoration(itemDecoration)
+        recyclerView.addItemDecoration(recyclerView.getGridViewLine(10))
 
         // 设置刷新样式
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallZigZag)
