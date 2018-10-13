@@ -36,8 +36,8 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-//    implementation 'com.github.sinothk:LoadingRecyclerView:1.0.1012'
-    implementation project(':LoadingRecyclerView')
+    implementation 'com.github.sinothk:LoadingRecyclerView:1.3.1013'
+//    implementation project(':LoadingRecyclerView')
 
 }
 
