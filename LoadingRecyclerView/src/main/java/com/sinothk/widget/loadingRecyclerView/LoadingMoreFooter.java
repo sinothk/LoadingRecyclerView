@@ -28,7 +28,7 @@ public class LoadingMoreFooter extends LinearLayout {
     private String noMoreHint;
     private String loadingDoneHint;
 
-    private int loadingViewHeight = 68;// 容器高度
+    private int loadingViewHeight = 50;// 容器高度
     private int loadingViewBackgroundColor = R.color.load_more_bg;// 容器背景
 
 
@@ -123,6 +123,7 @@ public class LoadingMoreFooter extends LinearLayout {
         layoutParams.setMargins((int) getResources().getDimension(R.dimen.textandiconmargin), 0, 0, 0);
 
         mText.setLayoutParams(layoutParams);
+        mText.setTextColor(getContext().getResources().getColor(R.color.load_more_txt));
 
         addView(mText);
     }

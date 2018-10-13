@@ -4,11 +4,11 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.provider.CalendarContract
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
 import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView
@@ -17,9 +17,7 @@ import com.sinothk.widget.loadingRecyclerView.demo.LoadingRecycleViewDemoMainAct
 import com.sinothk.widget.loadingRecyclerView.demo.MyAdapter
 import com.sinothk.widget.loadingRecyclerView.demo.R
 import com.sinothk.widget.loadingRecyclerView.extend.LoadingRecycleViewHeader
-import com.sinothk.widget.loadingRecyclerView.lines.SpacesItemDecoration
 import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack
-import com.sinothk.widget.loadingRecyclerView.utils.UnitUtil
 import kotlinx.android.synthetic.main.activity_loading_recycle_view_demo.*
 import java.util.*
 
@@ -71,13 +69,10 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
 //        recyclerView.addItemDecoration(recyclerView.getListViewLine(this, R.drawable.divider_sample))
 
         // 网格
-        recyclerView.layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
 
-        // 分割线
-        //添加ItemDecoration，item之间的间隔GridDividerItemDecoration(leftRight, topBottom, Color.GREEN)
-        val leftRight = UnitUtil.dp2px(this, 1)
-        val topBottom = UnitUtil.dp2px(this,1)
-//        recyclerView.addItemDecoration(recyclerView.GridDividerItemDecoration(leftRight, topBottom))//, resources.getColor(R.color.white)
+        val itemDecoration = recyclerView.getGridViewLine(10)//, R.color.colorPrimary
+        recyclerView.addItemDecoration(itemDecoration)
 
         // 设置刷新样式
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallZigZag)
@@ -85,14 +80,14 @@ class LoadingRecycleGridViewTestActivity : AppCompatActivity() {
         // 设置刷新样式:图标
         recyclerView.setArrowImageView(R.drawable.iconfont_downgrey)
         // 设置需要时间
-        recyclerView.defaultRefreshHeaderView!!.setRefreshTimeVisible(true)
+        recyclerView.defaultRefreshHeaderView!!.setRefreshTimeVisible(false)
         // 设置加载更多相关信息
-        recyclerView.defaultFootView!!.setLoadingHint("正在加载下一页")
-        recyclerView.defaultFootView!!.setNoMoreHint("数据全部加载完")
-
+        recyclerView.defaultFootView!!.setLoadingHint("正在加载...")
+        recyclerView.defaultFootView!!.setNoMoreHint("已全部加载")
+//        recyclerView.defaultFootView!!.setLoadingViewBackgroundColor(R.color.load_more_bg)
         // 设置头部
-//        val header: View = LoadingRecycleViewHeader.getViewByLayoutId(this@LoadingRecycleGridViewTestActivity, R.layout.recyclerview_header)
-//        recyclerView.addHeaderView(header)
+        val header: View = LoadingRecycleViewHeader.getViewByLayoutId(this@LoadingRecycleGridViewTestActivity, R.layout.recyclerview_header)
+        recyclerView.addHeaderView(header)
 
         // When the item number of the screen number is list.size-2,we call the onLoadMore
         recyclerView.setLimitNumberToCallLoadMore(2)

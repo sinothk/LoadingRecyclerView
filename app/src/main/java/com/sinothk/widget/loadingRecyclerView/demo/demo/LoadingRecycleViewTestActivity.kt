@@ -69,15 +69,15 @@ class LoadingRecycleViewTestActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(recyclerView.getListViewLine(this,R.drawable.divider_sample))
 
         // 设置刷新样式
-        recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader)
+        recyclerView.setRefreshProgressStyle(ProgressStyle.BallZigZag)
         recyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag)
         // 设置刷新样式:图标
         recyclerView.setArrowImageView(R.drawable.iconfont_downgrey)
         // 设置需要时间
         recyclerView.defaultRefreshHeaderView!!.setRefreshTimeVisible(true)
         // 设置加载更多相关信息
-        recyclerView.defaultFootView!!.setLoadingHint("正在加载下一页")
-        recyclerView.defaultFootView!!.setNoMoreHint("数据全部加载完")
+//        recyclerView.defaultFootView!!.setLoadingHint("正在加载...")
+//        recyclerView.defaultFootView!!.setNoMoreHint("已全部加载")
         // 设置头部
         val header: View = LoadingRecycleViewHeader.getViewByLayoutId(this@LoadingRecycleViewTestActivity, R.layout.recyclerview_header)
         recyclerView.addHeaderView(header)

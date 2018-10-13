@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -503,8 +505,6 @@ public class LoadingRecyclerView extends RecyclerView {
         }
     }
 
-    ;
-
     private class WrapAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         private RecyclerView.Adapter adapter;
@@ -953,64 +953,348 @@ public class LoadingRecyclerView extends RecyclerView {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, mContext.getResources().getDisplayMetrics());
     }
 
-    public class GridDividerItemDecoration extends RecyclerView.ItemDecoration {
+//    public class GridDividerItemDecoration extends RecyclerView.ItemDecoration {
+//
+//        private SpacesItemDecorationEntrust mEntrust;
+//        private int mColor;
+//        private int leftRight;
+//        private int topBottom;
+//
+//
+//        public GridDividerItemDecoration(int leftRight, int topBottom) {
+//            this.leftRight = leftRight;
+//            this.topBottom = topBottom;
+//        }
+//
+//        public GridDividerItemDecoration(int leftRight, int topBottom, int mColor) {
+//            this(leftRight, topBottom);
+//            this.mColor = mColor;
+//        }
+//
+//        @Override
+//        public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+//            if (mEntrust == null) {
+//                mEntrust = getEntrust(parent.getLayoutManager());
+//            }
+//            mEntrust.onDraw(c, parent, state);
+//            super.onDraw(c, parent, state);
+//        }
+//
+//        @Override
+//        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+//
+//            int position = parent.getChildAdapterPosition(view);
+//
+//            if (position < mWrapAdapter.getHeadersCount()) {
+//                return;
+//            }
+//
+//            if (mEntrust == null) {
+//                mEntrust = getEntrust(parent.getLayoutManager());
+//            }
+//            mEntrust.getItemOffsets(outRect, view, parent, state);
+//        }
+//
+//        private SpacesItemDecorationEntrust getEntrust(RecyclerView.LayoutManager manager) {
+//
+//            SpacesItemDecorationEntrust entrust = null;
+//            //要注意这边的GridLayoutManager是继承LinearLayoutManager，所以要先判断GridLayoutManager
+//
+//            if (manager instanceof GridLayoutManager) {
+//                entrust = new GridEntrust(leftRight, topBottom, mColor);
+//
+//            } else if (manager instanceof StaggeredGridLayoutManager) {
+//                entrust = new StaggeredGridEntrust(leftRight, topBottom, mColor);
+//
+//            } else {//其他的都当做Linear来进行计算
+//                entrust = new LinearEntrust(leftRight, topBottom, mColor);
+//            }
+//            return entrust;
+//        }
+//
+//    }
 
-        private SpacesItemDecorationEntrust mEntrust;
-        private int mColor;
-        private int leftRight;
-        private int topBottom;
+    /**
+     * 获得网格划线
+     *
+     * @param space
+     * @return
+     */
+    public RecyclerSpace getGridViewLine(int space) {
+        return new RecyclerSpace(space);
+    }
 
+    public RecyclerSpace getGridViewLine(int space, int color) {
+        return new RecyclerSpace(space, color);
+    }
 
-        public GridDividerItemDecoration(int leftRight, int topBottom) {
-            this.leftRight = leftRight;
-            this.topBottom = topBottom;
+    public RecyclerSpace getGridViewLine(int space, Drawable mDivider) {
+        return new RecyclerSpace(space, mDivider);
+    }
+
+    public class RecyclerSpace extends RecyclerView.ItemDecoration {
+        private int space;
+        private int color = -1;
+        private Drawable mDivider;
+        private Paint mPaint;
+        private int type;
+
+        public int getColor() {
+            return color;
         }
 
-        public GridDividerItemDecoration(int leftRight, int topBottom, int mColor) {
-            this(leftRight, topBottom);
-            this.mColor = mColor;
+        public void setColor(@ColorRes int colorId) {
+            this.color = getResources().getColor(colorId);
         }
 
-        @Override
-        public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-            if (mEntrust == null) {
-                mEntrust = getEntrust(parent.getLayoutManager());
-            }
-            mEntrust.onDraw(c, parent, state);
-            super.onDraw(c, parent, state);
+        RecyclerSpace(int space) {
+            this.space = space;
+        }
+
+        RecyclerSpace(int space, @ColorRes int colorId) {
+            this.space = space;
+            this.color = getResources().getColor(colorId);
+        }
+
+//        public RecyclerSpace(int space, int color) {
+//            this.space = space;
+//            this.color = color;
+//            mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//            mPaint.setColor(color);
+//            mPaint.setStyle(Paint.Style.FILL);
+//            mPaint.setStrokeWidth(space * 2);
+//        }
+//        public RecyclerSpace(int space, int color, int type) {
+//            this.space = space;
+//            this.color = color;
+//            mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//            mPaint.setColor(color);
+//            mPaint.setStyle(Paint.Style.FILL);
+//            mPaint.setStrokeWidth(space * 2);
+//            this.type = type;
+//        }
+
+
+        public RecyclerSpace(int space, Drawable mDivider) {
+            this.space = space;
+            this.mDivider = mDivider;
         }
 
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
 
             int position = parent.getChildAdapterPosition(view);
-
-            if (position < mWrapAdapter.getHeadersCount()) {
+            if (position <= mWrapAdapter.getHeadersCount()) {
                 return;
             }
 
-            if (mEntrust == null) {
-                mEntrust = getEntrust(parent.getLayoutManager());
+            if (parent.getLayoutManager() != null) {
+                if (parent.getLayoutManager() instanceof LinearLayoutManager && !(parent.getLayoutManager() instanceof GridLayoutManager)) {
+                    if (((LinearLayoutManager) parent.getLayoutManager()).getOrientation() == LinearLayoutManager.HORIZONTAL) {
+                        outRect.set(space, 0, space, 0);
+                    } else {
+                        outRect.set(0, space, 0, space);
+                    }
+                } else {
+                    outRect.set(space, space, space, space);
+                }
             }
-            mEntrust.getItemOffsets(outRect, view, parent, state);
+
         }
 
-        private SpacesItemDecorationEntrust getEntrust(RecyclerView.LayoutManager manager) {
+        @Override
+        public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+            super.onDraw(c, parent, state);
 
-            SpacesItemDecorationEntrust entrust = null;
-            //要注意这边的GridLayoutManager是继承LinearLayoutManager，所以要先判断GridLayoutManager
 
-            if (manager instanceof GridLayoutManager) {
-                entrust = new GridEntrust(leftRight, topBottom, mColor);
-
-            } else if (manager instanceof StaggeredGridLayoutManager) {
-                entrust = new StaggeredGridEntrust(leftRight, topBottom, mColor);
-
-            } else {//其他的都当做Linear来进行计算
-                entrust = new LinearEntrust(leftRight, topBottom, mColor);
+            if (color == -1) {
+                c.drawColor(Color.WHITE);
+            }else{
+                c.drawColor(color);
             }
-            return entrust;
+
+            if (parent.getLayoutManager() != null) {
+
+                if (parent.getLayoutManager() instanceof LinearLayoutManager && !(parent.getLayoutManager() instanceof GridLayoutManager)) {
+
+                    if (((LinearLayoutManager) parent.getLayoutManager()).getOrientation() == LinearLayoutManager.HORIZONTAL) {
+                        drawHorizontal(c, parent);
+                    } else {
+                        drawVertical(c, parent);
+                    }
+
+                } else {
+                    if (type == 0) {
+                        drawGridView(c, parent);
+                    } else {
+                        drawGrideview1(c, parent);
+                    }
+                }
+            }
         }
 
+        //绘制纵向 item 分割线
+        private void drawVertical(Canvas canvas, RecyclerView parent) {
+            final int top = parent.getPaddingTop();
+            final int bottom = parent.getMeasuredHeight() - parent.getPaddingBottom();
+            final int childSize = parent.getChildCount();
+            for (int i = 0; i < childSize; i++) {
+                final View child = parent.getChildAt(i);
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
+                final int left = child.getRight() + layoutParams.rightMargin;
+                final int right = left + space;
+
+                if (mDivider != null) {
+                    mDivider.setBounds(left, top, right, bottom);
+                    mDivider.draw(canvas);
+                }
+                if (mPaint != null) {
+                    canvas.drawRect(left, top, right, bottom, mPaint);
+                }
+            }
+        }
+
+        //绘制横向 item 分割线
+        private void drawHorizontal(Canvas canvas, RecyclerView parent) {
+            int left = parent.getPaddingLeft();
+            int right = parent.getMeasuredWidth() - parent.getPaddingRight();
+            final int childSize = parent.getChildCount();
+            for (int i = 0; i < childSize; i++) {
+                final View child = parent.getChildAt(i);
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
+                int top = child.getBottom() + layoutParams.bottomMargin;
+                int bottom = top + space;
+                if (mDivider != null) {
+                    mDivider.setBounds(left, top, right, bottom);
+                    mDivider.draw(canvas);
+                }
+                if (mPaint != null) {
+                    canvas.drawRect(left, top, right, bottom, mPaint);
+                }
+
+            }
+        }
+
+        //绘制grideview item 分割线 不是填充满的
+        private void drawGridView(Canvas canvas, RecyclerView parent) {
+
+            GridLayoutManager linearLayoutManager = (GridLayoutManager) parent.getLayoutManager();
+
+            int childSize = parent.getChildCount();
+
+            int other = parent.getChildCount() / linearLayoutManager.getSpanCount() - 1;
+
+            if (other < 1) {
+                other = 1;
+            }
+
+            other = other * linearLayoutManager.getSpanCount();
+            if (parent.getChildCount() < linearLayoutManager.getSpanCount()) {
+                other = parent.getChildCount();
+            }
+
+            int top, bottom, left, right, spancount;
+
+            spancount = linearLayoutManager.getSpanCount() - 1;
+
+            for (int i = 0; i < childSize; i++) {
+                final View child = parent.getChildAt(i);
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
+                if (i < other) {
+                    top = child.getBottom() + layoutParams.bottomMargin;
+                    bottom = top + space;
+                    left = (layoutParams.leftMargin + space) * (i + 1);
+                    right = child.getMeasuredWidth() * (i + 1) + left + space * i;
+
+                    if (mDivider != null) {
+                        mDivider.setBounds(left, top, right, bottom);
+                        mDivider.draw(canvas);
+                    }
+
+                    if (mPaint != null) {
+                        canvas.drawRect(left, top, right, bottom, mPaint);
+                    }
+                }
+                if (i != spancount) {
+                    top = (layoutParams.topMargin + space) * (i / linearLayoutManager.getSpanCount() + 1);
+                    bottom = (child.getMeasuredHeight() + space) * (i / linearLayoutManager.getSpanCount() + 1) + space;
+                    left = child.getRight() + layoutParams.rightMargin;
+                    right = left + space;
+                    if (mDivider != null) {
+                        mDivider.setBounds(left, top, right, bottom);
+                        mDivider.draw(canvas);
+                    }
+                    if (mPaint != null) {
+                        canvas.drawRect(left, top, right, bottom, mPaint);
+                    }
+                } else {
+                    spancount += 4;
+                }
+            }
+        }
+
+        /***/
+        private void drawGrideview1(Canvas canvas, RecyclerView parent) {
+            GridLayoutManager linearLayoutManager = (GridLayoutManager) parent.getLayoutManager();
+            int childSize = parent.getChildCount();
+            int top, bottom, left, right, spancount;
+            spancount = linearLayoutManager.getSpanCount();
+            for (int i = 0; i < childSize; i++) {
+                final View child = parent.getChildAt(i);
+                //画横线
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) child.getLayoutParams();
+                top = child.getBottom() + layoutParams.bottomMargin;
+                bottom = top + space;
+                left = layoutParams.leftMargin + child.getPaddingLeft() + space;
+                right = child.getMeasuredWidth() * (i + 1) + left + space * i;
+                if (mDivider != null) {
+                    mDivider.setBounds(left, top, right, bottom);
+                    mDivider.draw(canvas);
+                }
+                if (mPaint != null) {
+                    canvas.drawRect(left, top, right, bottom, mPaint);
+                }
+                //画竖线
+                top = (layoutParams.topMargin + space) * (i / linearLayoutManager.getSpanCount() + 1);
+                bottom = (child.getMeasuredHeight() + space) * (i / linearLayoutManager.getSpanCount() + 1) + space;
+                left = child.getRight() + layoutParams.rightMargin;
+                right = left + space;
+                if (mDivider != null) {
+                    mDivider.setBounds(left, top, right, bottom);
+                    mDivider.draw(canvas);
+                }
+                if (mPaint != null) {
+                    canvas.drawRect(left, top, right, bottom, mPaint);
+                }
+
+                //画上缺失的线框
+                if (i < spancount) {
+                    top = child.getTop() + layoutParams.topMargin;
+                    bottom = top + space;
+                    left = (layoutParams.leftMargin + space) * (i + 1);
+                    right = child.getMeasuredWidth() * (i + 1) + left + space * i;
+                    if (mDivider != null) {
+                        mDivider.setBounds(left, top, right, bottom);
+                        mDivider.draw(canvas);
+                    }
+                    if (mPaint != null) {
+                        canvas.drawRect(left, top, right, bottom, mPaint);
+                    }
+                }
+                if (i % spancount == 0) {
+                    top = (layoutParams.topMargin + space) * (i / linearLayoutManager.getSpanCount() + 1);
+                    bottom = (child.getMeasuredHeight() + space) * (i / linearLayoutManager.getSpanCount() + 1) + space;
+                    left = child.getLeft() + layoutParams.leftMargin;
+                    right = left + space;
+                    if (mDivider != null) {
+                        mDivider.setBounds(left, top, right, bottom);
+                        mDivider.draw(canvas);
+                    }
+                    if (mPaint != null) {
+                        canvas.drawRect(left, top, right, bottom, mPaint);
+                    }
+                }
+            }
+        }
     }
 }

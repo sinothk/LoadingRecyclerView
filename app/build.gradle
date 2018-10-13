@@ -38,5 +38,6 @@ dependencies {
 
 //    implementation 'com.github.sinothk:LoadingRecyclerView:1.0.1012'
     implementation project(':LoadingRecyclerView')
+
 }
 
