@@ -29,10 +29,9 @@
         
   ## Kotlin
     
-         // ListView：设置方向
-//        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//        recyclerView.addItemDecoration(recyclerView.getListViewLine(this, R.drawable.divider_sample))
-
+        // ListView：设置方向
+        //recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        //recyclerView.addItemDecoration(recyclerView.getListViewLine(this, R.drawable.divider_sample))
         // 网格
         recyclerView.layoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
         recyclerView.addItemDecoration(recyclerView.getGridViewLine(10))
@@ -47,7 +46,7 @@
         // 设置加载更多相关信息
         recyclerView.defaultFootView!!.setLoadingHint("正在加载...")
         recyclerView.defaultFootView!!.setNoMoreHint("已全部加载")
-//        recyclerView.defaultFootView!!.setLoadingViewBackgroundColor(R.color.load_more_bg)
+        // recyclerView.defaultFootView!!.setLoadingViewBackgroundColor(R.color.load_more_bg)
         // 设置头部
         val header: View = LoadingRecycleViewHeader.getViewByLayoutId(this@LoadingRecycleGridViewTestActivity, R.layout.recyclerview_header)
         recyclerView.addHeaderView(header)
@@ -66,3 +65,17 @@
             }
         })
     
+## 滚动
+  
+       mRecyclerView.setScrollAlphaChangeListener(new LoadingRecyclerView.ScrollAlphaChangeListener() {
+            @Override
+            public void onAlphaChange(int alpha) {
+                alpha_title.getBackground().setAlpha(alpha);
+            }
+
+            @Override
+            public int setLimitHeight() {
+                return 1300;
+            }
+        });
+  
