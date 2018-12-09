@@ -264,7 +264,7 @@ public class LoadingRecyclerView extends RecyclerView {
 
     // if you can't sure that you are 100% going to
     // have no data load back from server anymore,do not use this
-    @Deprecated
+//    @Deprecated
     public void setEmptyView(View emptyView) {
         this.mEmptyView = emptyView;
         mDataObserver.onChanged();

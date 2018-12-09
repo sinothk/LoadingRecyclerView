@@ -4,7 +4,7 @@
     android:layout_height="100dp"
     android:background="#d96b6b"
     android:orientation="horizontal"
-    android:padding="@dimen/dp_12">
+    android:padding="12dp">
 
     <View
         android:layout_width="60dip"
@@ -17,6 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginStart="12dp"
         android:text="SINOTHK" />
 </LinearLayout>
