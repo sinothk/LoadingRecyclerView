@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack;
@@ -38,7 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         viewHolder.mTextView.setText(datas.get(position));
-        viewHolder.mTextView.setOnClickListener(
+        viewHolder.rootView.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -64,10 +65,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     //自定义的ViewHolder，持有每个Item的的所有界面元素
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextView;
+        LinearLayout rootView;
 
         public ViewHolder(View view) {
             super(view);
             mTextView = (TextView) view.findViewById(R.id.text);
+            rootView = view.findViewById(R.id.rootView);
         }
     }
 }

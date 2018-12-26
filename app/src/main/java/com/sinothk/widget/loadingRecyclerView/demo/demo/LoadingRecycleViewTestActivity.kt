@@ -47,14 +47,13 @@ class LoadingRecycleViewTestActivity : AppCompatActivity() {
 
         mAdapter = MyAdapter(listData)
 
-        mAdapter!!.setClickCallBack(ItemClickCallBack<String> { pos, value ->
+        mAdapter!!.setClickCallBack { pos, value ->
 
-            Toast.makeText(this@LoadingRecycleViewTestActivity, value, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@LoadingRecycleViewTestActivity, value.toString(), Toast.LENGTH_SHORT).show()
 
-            listData!!.removeAt(pos)
-            recyclerView.notifyItemRemoved(listData, pos)
+//            listData!!.removeAt(pos)
+//            recyclerView.notifyItemRemoved(listData, pos)
         }
-        )
 
 
         recyclerView.adapter = mAdapter
