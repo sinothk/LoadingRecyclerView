@@ -5,15 +5,16 @@
     <com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/text_empty"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#dcdcdc"
         android:gravity="center"
-        android:text="emptyView"
-        android:visibility="gone" />
+        android:text="加载中..."
+        android:visibility="visible" />
+
 </RelativeLayout>
