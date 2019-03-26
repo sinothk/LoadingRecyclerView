@@ -20,6 +20,11 @@
     }
 
 # 使用
+
+  ## 加载背景颜色
+      <color name="load_more_bg">#E0E0E0</color>
+      <color name="load_more_txt">#888888</color>
+
   ## XML
       <com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView
         android:id="@+id/recyclerView"
