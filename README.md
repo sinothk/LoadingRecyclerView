@@ -16,7 +16,7 @@
 ## Step 2. Add the dependency
 
     dependencies {
-            implementation 'com.github.sinothk:LoadingRecyclerView:1.3.1013'
+            implementation 'com.github.sinothk:LoadingRecyclerView:2.19.0416'
     }
 
 # 使用
