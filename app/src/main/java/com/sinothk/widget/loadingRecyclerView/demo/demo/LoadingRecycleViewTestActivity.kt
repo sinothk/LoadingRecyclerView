@@ -3,23 +3,18 @@ package com.sinothk.widget.loadingRecyclerView.demo.demo
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle
 import com.sinothk.widget.loadingRecyclerView.demo.LoadingRecycleViewDemoMainActivity
 import com.sinothk.widget.loadingRecyclerView.demo.MyAdapter
 import com.sinothk.widget.loadingRecyclerView.demo.R
 import com.sinothk.widget.loadingRecyclerView.extend.LoadingRecycleViewHeader
-import com.sinothk.widget.loadingRecyclerView.listeners.ItemClickCallBack
 import kotlinx.android.synthetic.main.activity_loading_recycle_view_demo.*
 import java.util.*
-import com.sinothk.widget.loadingRecyclerView.demo.R.id.recyclerView
-
 
 
 class LoadingRecycleViewTestActivity : AppCompatActivity() {

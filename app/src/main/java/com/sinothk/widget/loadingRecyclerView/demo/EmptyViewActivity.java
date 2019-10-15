@@ -2,10 +2,11 @@ package com.sinothk.widget.loadingRecyclerView.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;
 

@@ -1,6 +1,6 @@
 package com.sinothk.widget.loadingRecyclerView;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by jianghejie on 16/6/20.
@@ -18,7 +18,7 @@ public interface ItemTouchHelperAdapter {
      * @param fromPosition The start position of the moved item.
      * @param toPosition   Then resolved position of the moved item.
      *
-     * @see RecyclerView#getAdapterPositionFor(RecyclerView.ViewHolder)
+//     * @see RecyclerView#getAdapterPositionFor(RecyclerView.ViewHolder)
      * @see RecyclerView.ViewHolder#getAdapterPosition()
      */
     void onItemMove(int fromPosition, int toPosition);
@@ -32,7 +32,7 @@ public interface ItemTouchHelperAdapter {
      *
      * @param position The position of the item dismissed.
      *
-     * @see RecyclerView#getAdapterPositionFor(RecyclerView.ViewHolder)
+//     * @see RecyclerView#getAdapterPositionFor(RecyclerView.ViewHolder)
      * @see RecyclerView.ViewHolder#getAdapterPosition()
      */
     void onItemDismiss(int position);

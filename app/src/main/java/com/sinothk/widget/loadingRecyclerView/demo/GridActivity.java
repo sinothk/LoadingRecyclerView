@@ -3,12 +3,13 @@ package com.sinothk.widget.loadingRecyclerView.demo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
 import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;

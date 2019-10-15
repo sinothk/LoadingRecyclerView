@@ -2,13 +2,14 @@ package com.sinothk.widget.loadingRecyclerView.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.sinothk.widget.loadingRecyclerView.ProgressStyle;
 import com.sinothk.widget.loadingRecyclerView.LoadingRecyclerView;

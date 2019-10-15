@@ -7,9 +7,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.IntDef;
 
 import com.sinothk.widget.loadingRecyclerView.R;
 import com.sinothk.widget.loadingRecyclerView.progressindicator.indicator.BallBeatIndicator;

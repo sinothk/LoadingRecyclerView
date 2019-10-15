@@ -1,11 +1,12 @@
 package com.sinothk.widget.loadingRecyclerView.demo;
 
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MyItemadapter extends RecyclerView.Adapter<MyItemadapter.ViewHolder> implements View.OnClickListener{
     private  String[]  datas;
