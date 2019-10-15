@@ -30,7 +30,7 @@ public class AlphaChangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alpha_change_layout);
 
-        mRecyclerView = (LoadingRecyclerView)this.findViewById(R.id.recyclerview);
+        mRecyclerView = this.findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
