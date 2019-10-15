@@ -40,7 +40,7 @@ public class AlphaChangeActivity extends AppCompatActivity {
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
 
         /** ----- alpha change listen test start ----- */
-        final RelativeLayout alpha_title = (RelativeLayout) findViewById(R.id.alpha_title);
+        final RelativeLayout alpha_title = findViewById(R.id.alpha_title);
 
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
