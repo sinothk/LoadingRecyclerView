@@ -47,15 +47,16 @@ public class LinearActivity extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
+
+        int c = mRecyclerView.getHeaderViewsCount();
+
         mRecyclerView.addItemDecoration(mRecyclerView.getListViewLine(this,R.drawable.divider_sample));
 
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
 
-        mRecyclerView
-                .getDefaultRefreshHeaderView()
-                .setRefreshTimeVisible(true);
+        mRecyclerView.getDefaultRefreshHeaderView().setRefreshTimeVisible(true);
         View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
         mRecyclerView.addHeaderView(header);
 

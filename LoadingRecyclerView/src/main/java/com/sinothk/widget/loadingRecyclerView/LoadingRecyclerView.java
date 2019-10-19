@@ -354,6 +354,10 @@ public class LoadingRecyclerView extends RecyclerView {
         return mWrapAdapter.getHeadersCount() + 1;
     }
 
+    public int getHeaderViewsCount() {
+        return mWrapAdapter.getHeadersCount();
+    }
+
     /**
      * ======================================================= end =======================================================
      */
