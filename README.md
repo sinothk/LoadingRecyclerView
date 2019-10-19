@@ -16,7 +16,9 @@
 ## Step 2. Add the dependency
 
     dependencies {
-            implementation 'com.github.sinothk:LoadingRecyclerView:2.19.0416'
+            // implementation 'com.github.sinothk:LoadingRecyclerView:2.19.0416'
+            // 支持：androidx
+            implementation 'com.github.sinothk:LoadingRecyclerView:3.x.1015'
     }
 
 # 使用
