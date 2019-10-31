@@ -355,7 +355,7 @@ public class LoadingRecyclerView extends RecyclerView {
     }
 
     public int getHeaderViewsCount() {
-        return mWrapAdapter.getHeadersCount();
+        return mHeaderViews.size() + 1;
     }
 
     /**
@@ -390,7 +390,7 @@ public class LoadingRecyclerView extends RecyclerView {
                             && adjAdapterItemCount >= layoutManager.getChildCount()
                             && !isNoMore
                             && status < ArrowRefreshHeader.STATE_REFRESHING
-                    ) {
+            ) {
                 isLoadingData = true;
                 if (mFootView instanceof LoadingMoreFooter) {
                     ((LoadingMoreFooter) mFootView).setState(LoadingMoreFooter.STATE_LOADING);
@@ -1110,7 +1110,7 @@ public class LoadingRecyclerView extends RecyclerView {
 
             if (color == -1) {
                 c.drawColor(Color.WHITE);
-            }else{
+            } else {
                 c.drawColor(color);
             }
 

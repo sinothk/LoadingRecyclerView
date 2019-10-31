@@ -48,7 +48,6 @@ public class LinearActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(layoutManager);
 
 
-        int c = mRecyclerView.getHeaderViewsCount();
 
         mRecyclerView.addItemDecoration(mRecyclerView.getListViewLine(this,R.drawable.divider_sample));
 
@@ -57,8 +56,11 @@ public class LinearActivity extends AppCompatActivity {
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
 
         mRecyclerView.getDefaultRefreshHeaderView().setRefreshTimeVisible(true);
+
         View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
         mRecyclerView.addHeaderView(header);
+
+        int c = mRecyclerView.getHeaderViewsCount();
 
         mRecyclerView.getDefaultFootView().setLoadingHint("自定义加载中提示");
         mRecyclerView.getDefaultFootView().setNoMoreHint("自定义加载完毕提示");
