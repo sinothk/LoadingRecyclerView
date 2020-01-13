@@ -63,8 +63,23 @@ class LoadingRecycleViewTestActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(recyclerView.getListViewLine(this,R.drawable.divider_sample))
 
         // 设置刷新样式
-        recyclerView.setRefreshProgressStyle(ProgressStyle.BallZigZag)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.SysProgress)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallPulse)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallGridPulse)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallClipRotate)
+
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallClipRotatePulse)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.SquareSpin)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallClipRotateMultiple)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallPulseRise)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallZigZagDeflect)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallTrianglePath)
+//        recyclerView.setRefreshProgressStyle(ProgressStyle.BallScale)
+        recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader)
+
         recyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag)
+
+
         // 设置刷新样式:图标
         recyclerView.setArrowImageView(R.drawable.iconfont_downgrey)
         // 设置需要时间
