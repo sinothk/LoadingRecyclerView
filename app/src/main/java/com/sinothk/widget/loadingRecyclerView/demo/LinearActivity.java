@@ -51,9 +51,9 @@ public class LinearActivity extends AppCompatActivity {
 
         mRecyclerView.addItemDecoration(mRecyclerView.getListViewLine(this,R.drawable.divider_sample));
 
-        mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
-        mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
+        mRecyclerView.setArrowImageView(R.drawable.iconfont_down_white);
 
         mRecyclerView.getDefaultRefreshHeaderView().setRefreshTimeVisible(true);
 
