@@ -1,7 +1,6 @@
 package com.sinothk.widget.loadingRecyclerView;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
